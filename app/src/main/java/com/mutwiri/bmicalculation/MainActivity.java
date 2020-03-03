@@ -1,3 +1,8 @@
+/**
+ * Created by Patrick Mutwiri
+ * @patric_mutwiri
+ * patric.xyz
+ */
 package com.mutwiri.bmicalculation;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -52,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                     entryName = findViewById(R.id.editText3);
                     name = entryName.getText().toString();
 
-                    Log.v(msg,"Data :: Name "+name+"; Height "+height+"; Weight "+weight);
+                    Log.v(msg,"Data :: Name "+name+"; Height "+height+" Mtrs; Weight "+weight+" KGs");
 
                     // formula
                     // bmi = kg/m2
@@ -68,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                     } else {
                         healthStatus = "NORMAL";
                     }
-                    String outputStr = "Name\t: "+name+"\nHeight\t: "+height+"\nWeight\t: "+weight+"\n\nBMI\t: "+bmi+"\n\nHealth Status\t: "+healthStatus;
+                    String outputStr = "Name\t: "+name+"\nHeight\t: "+height+" Mtrs\nWeight\t: "+weight+"KGs\n\nBMI\t: "+bmi+"\n\nHealth Status\t: "+healthStatus;
 
                     results = findViewById(R.id.textView2);
                     results.setText(outputStr);
