@@ -49,20 +49,36 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     Log.v(msg,"Calculating BMI");
                     entryHeight = findViewById(R.id.editText);
-                    height = Float.parseFloat(entryHeight.getText().toString());
-
+                    try {
+                        height = Float.parseFloat(entryHeight.getText().toString());
+                    } catch (Exception e) {
+                        height = 0;
+                        Log.v(msg, "Height is null, set 0");
+                    }
                     entryWeight = findViewById(R.id.editText2);
-                    weight = Float.parseFloat(entryWeight.getText().toString());
-
+                    try {
+                        weight = Float.parseFloat(entryWeight.getText().toString());
+                    } catch (Exception e) {
+                        weight = 0;
+                        Log.v(msg, "Weight is null, set 0");
+                    }
                     entryName = findViewById(R.id.editText3);
-                    name = entryName.getText().toString();
-
+                    try {
+                        name = entryName.getText().toString();
+                    } catch (Exception e) {
+                        name = "";
+                        Log.v(msg, "Name is null, set empty");
+                    }
                     Log.v(msg,"Data :: Name "+name+"; Height "+height+" Mtrs; Weight "+weight+" KGs");
 
                     // formula
                     // bmi = kg/m2
-                    heightsq = height*height;
-                    bmi = weight/heightsq;
+                    if (weight > 0 && height > 0) {
+                        heightsq = height*height;
+                        bmi = weight/heightsq;
+                    } else {
+                        bmi = 0;
+                    }
                     Log.v(msg,"Formula >> kg/m2: "+weight+"/"+height+" squared, ("+heightsq+") = "+bmi);
                     // display
                     String healthStatus;
